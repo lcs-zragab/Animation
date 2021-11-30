@@ -55,6 +55,8 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
+canvas.highPerformance = true
+
 
 // Begin writing your code below (you can remove the examples shown)
 
@@ -73,6 +75,7 @@ p.penColor = .red
 // Draw a curve, down and to the right
 p.addArc(radius: 50, angle: -45)
 
+canvas.highPerformance = false
 /*:
  ## Show the Live View
  Don't see any results?
