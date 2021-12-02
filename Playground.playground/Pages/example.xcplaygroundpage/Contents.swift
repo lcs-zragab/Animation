@@ -5,7 +5,7 @@
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
 let preferredWidth = 400
-let preferredHeight = 400
+let preferredHeight = 600
 /*:
  ## Required code
  
@@ -61,24 +61,55 @@ canvas.drawAxes(withScale: true, by: 50, color: .black)
 
  // A loop to express the 0,50,100,150 pattenr
 canvas.highPerformance = true
-for someValue in stride(from: 0, through: 400, by: 1){
+for someValue in stride(from: 0, through: 400, by: 8){
     
 //    draw line from and to the pionts shown in our plan
-    canvas.lineColor = .red
+    canvas.lineColor = .black
 
     canvas.drawLine(from: Point(x: someValue, y: 0), to: Point(x: 400, y: someValue))
     
-    canvas.lineColor = .blue
+    canvas.lineColor = .orange
     
     canvas.drawLine(from: Point(x: someValue, y: 400), to: Point(x: 0, y: someValue))
-    canvas.lineColor = .red
+    canvas.lineColor = .orange
+
     canvas.drawLine(from: Point(x: someValue, y: 0), to: Point(x: 0, y: 400-someValue))
-    canvas.lineColor = .blue
+    canvas.lineColor = .black
     canvas.drawLine(from: Point(x: someValue, y: 400), to: Point(x: 400, y: 400-someValue))
     
    
    
     }
+
+var triangleVertices: [Point]=[]
+//triangleVertices.append(Point(x: 0, y: 50))
+//triangleVertices.append(Point(x: 50, y: 50))
+//triangleVertices.append(Point(x: 25, y: 50))
+// 2. tell the canvas
+canvas.drawCustomShape(with: triangleVertices)
+
+for xPosition in stride(from: 300, through: 400, by: 20) {
+    
+    for yPosition in stride(from: 0, through: 400, by: 20) {
+        
+        canvas.fillColor = .orange
+        canvas.drawEllipse(at: Point(x: xPosition, y: yPosition), width: 10, height: 10)
+        
+        
+    }
+    
+}
+for xPosition in stride(from: 0, through: 100, by: 20) {
+    
+    for yPosition in stride(from: 0, through: 400, by: 20) {
+        
+        canvas.fillColor = .black
+        canvas.drawEllipse(at: Point(x: xPosition, y: yPosition), width: 10, height: 10)
+        
+        
+    }
+    
+}
 canvas.highPerformance = false
 /*:
  ## Show the Live View

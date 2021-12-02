@@ -71,4 +71,4 @@ for xPostion in stride(from: 0, through: 700, by: 100) {
 
 //draw text
 canvas.highPerformance = false
-canvas.drawText(message: String (HI), at: Point(x: 200, y: 200))
+//canvas.drawText(message: String (HI), at: Point(x: 200, y: 200))

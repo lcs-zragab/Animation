@@ -55,6 +55,23 @@ canvas.drawAxes(withScale: true, by: 50, color: .black)
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
  
  */
+//add the ability to draw a tiltied recrangle to the canvea structer
+
+extension Canvas {
+    func drawTiltedRectangle(xPosition: Int, yPosition: Int) {
+        var rectangleVertices: [Point] = []
+        rectangleVertices.append(Point(x: xPosition + 0, y: yPosition + 30))
+        rectangleVertices.append(Point(x: xPosition + 20, y: yPosition + 50))
+        rectangleVertices.append(Point(x: xPosition + 50, y: yPosition + 20))
+        rectangleVertices.append(Point(x: xPosition + 30, y: yPosition + 0))
+        canvas.drawCustomShape(with: rectangleVertices)
+        
+        
+    }
+}
+
+
+
 // being writting your code belwo
 canvas.highPerformance = false
 var triangleVertices: [Point]=[]
@@ -74,13 +91,6 @@ for xPosition in stride(from: 0, through: 550, by: 50) {
         
         //        draw tiltied rectrangle
         canvas.fillColor = .yellow
-        var rectangleVertices: [Point] = []
-        rectangleVertices.append(Point(x: xPosition + 0, y: yPosition + 30))
-        rectangleVertices.append(Point(x: xPosition + 20, y: yPosition + 50))
-        rectangleVertices.append(Point(x: xPosition + 50, y: yPosition + 20))
-        rectangleVertices.append(Point(x: xPosition + 30, y: yPosition + 0))
-        canvas.drawCustomShape(with: rectangleVertices)
-        
     }
     
 }
