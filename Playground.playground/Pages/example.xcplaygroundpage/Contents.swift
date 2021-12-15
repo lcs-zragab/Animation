@@ -17,6 +17,7 @@ import Cocoa
 import PlaygroundSupport
 import CanvasGraphics
 import Darwin
+import AppKit
 
 // Create canvas
 let canvas = Canvas(width: preferredWidth, height: preferredHeight)
@@ -86,17 +87,6 @@ canvas.drawCustomShape(with: triangleVertices)
 //canvas.triangleVertices = (x: 100, Int, y: 100, Int)
 
 
-for xPosition in stride(from: 300, through: 400, by: 20) {
-
-    for yPosition in stride(from: 0, through: 400, by: 20) {
-
-        canvas.fillColor = .orange
-        canvas.drawEllipse(at: Point(x: xPosition, y: yPosition), width: 10, height: 10)
-
-
-    }
-
-}
 for xPosition in stride(from: 0, through: 100, by: 20) {
 
     for yPosition in stride(from: 0, through: 400, by: 20) {
@@ -108,13 +98,41 @@ for xPosition in stride(from: 0, through: 100, by: 20) {
     }
 
 }
+for xPosition in stride(from: 300, through: 400, by: 20) {
 
+    for yPosition in stride(from: 0, through: 400, by: 20) {
+
+        canvas.fillColor = .black
+        canvas.drawEllipse(at: Point(x: xPosition, y: yPosition), width: 10, height: 10)
+
+
+    }
+
+}
 canvas.fillColor = .black
 canvas.drawRectangle(at: Point(x: 0, y: 400), width: 200, height:250,  borderWidth: 20)
 canvas.fillColor = .black
 canvas.drawRectangle(at: Point(x: 200, y: 400), width: 200, height:250,  borderWidth: 20)
 
+canvas.textColor = .orange
+canvas.drawText(message: "WEGZ", at: Point(x: 25, y: 500), size: 40, kerning: 0)
+canvas.drawText(message: "30 July 2021", at: Point(x: 25, y: 420), size: 20, kerning: 0)
+canvas.textColor = .orange
 
+
+
+
+// Move to upper part of canvas, middle
+canvas.drawAxes(withScale: true, by: 50, color: .white)
+
+// Move the origin to (200, 500)
+canvas.translate(to: Point(x: 185, y: 600))
+canvas.rotate(by: -90)
+canvas.drawText(message: "أي حاجة ببلاش", at: Point(x: 0, y: 0), size: 30, kerning: 0)
+canvas.textColor = .black
+canvas.drawText(message: "أي حاجة ببلاش صاحبي ناخد منها كتير", at: Point(x: 185, y: 0), size: 30, kerning: 0)
+canvas.rotate(by: 90)
+canvas.translate(to: Point(x: -185, y: -600))
 
 
     canvas.highPerformance = false
